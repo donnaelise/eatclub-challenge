@@ -1,5 +1,13 @@
-export interface ApiResponse {
-  restaurants: Restaurant[]
+export interface Deal {
+	objectId: string
+    discount: string
+    dineIn: string
+    lightning: string
+    open?:string
+    close?: string
+    start?:string
+    end?: string
+    qtyLeft: string
 }
 
 export interface Restaurant {
@@ -14,14 +22,6 @@ export interface Restaurant {
     deals: Deal[]
 }
 
-export interface Deal {
-	objectId: string
-    discount: string
-    dineIn: string
-    lightning: string
-    open?:string
-    close?: string
-    start?:string
-    end?: string
-    qtyLeft: string
+export interface ApiResponse {
+  restaurants: Restaurant[]
 }
