@@ -7,11 +7,14 @@ interface RestaurantCardProps {
 }
 
 export default function RestaurantCard({ restaurant }: RestaurantCardProps) {
+  const navigate = useNavigate()
+  
+  if (!restaurant.deals || restaurant.deals.length === 0) return null
+
   const bestDeal = restaurant.deals.reduce((best, current) =>
     Number(current.discount) > Number(best.discount) ? current : best
     )
   const cuisines = restaurant.cuisines.slice(0, 3).join(', ')
-  const navigate = useNavigate()
 
   return (
     <li className="restaurant-card" onClick={() => navigate(`/restaurant/${restaurant.objectId}`, { state: { restaurant } })} role="button">

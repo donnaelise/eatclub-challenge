@@ -8,7 +8,7 @@ export async function fetchRestaurants(): Promise<ApiResponse> {
 		}
 		const data = await res.json() as ApiResponse
 		return data
-	} catch (err) {
+	} catch {
 		throw new Error('Failed to fetch restaurants')
 	}
 }
