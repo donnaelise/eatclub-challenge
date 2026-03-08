@@ -3,6 +3,7 @@ import type { Restaurant } from '../types/restaurant'
 import { useRestaurants } from '../hooks/useRestaurants'
 import SearchBar from '../components/SearchBar'
 import RestaurantCard from '../components/RestaurantCard'
+import Header from '../components/Header'
 
 
 export default function RestaurantList() {
@@ -31,6 +32,7 @@ export default function RestaurantList() {
 
 	return (
 		<main className="restaurant-list-page">
+			<Header />
 			<SearchBar query={query} onQueryChange={setQuery} />
 			<ul className="restaurant-list">
 				{filtered.map((restaurant) => (

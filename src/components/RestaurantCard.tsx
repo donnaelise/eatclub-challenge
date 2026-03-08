@@ -1,5 +1,6 @@
 import type { Restaurant } from '../types/restaurant'
 import { Heart } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 interface RestaurantCardProps {
   restaurant: Restaurant
@@ -9,11 +10,11 @@ export default function RestaurantCard({ restaurant }: RestaurantCardProps) {
   const bestDeal = restaurant.deals.reduce((best, current) =>
   Number(current.discount) > Number(best.discount) ? current : best
 )
-  const cuisines = restaurant.cuisines.slice(0, 3).join(', ')
-
+  const cuisines = restaurant.cuisines.slice(0, 3).join(' • ')
+const navigate = useNavigate()
 
   return (
-    <li className="restaurant-card">
+    <li className="restaurant-card" onClick={() => navigate(`/restaurant/${restaurant.objectId}`, { state: { restaurant } })} role="button">
       <div className="restaurant-image-wrap">
         <img
           className="restaurant-image"
