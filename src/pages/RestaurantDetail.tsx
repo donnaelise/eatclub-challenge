@@ -2,6 +2,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { ArrowLeft, Clock3, Heart, MapPin, Newspaper, PhoneCall } from 'lucide-react'
 import DealCard from '../components/DealCard'
+import Header from '../components/Header'
+
 
 export default function RestaurantDetail() {
 	useEffect(() => {
@@ -21,6 +23,7 @@ export default function RestaurantDetail() {
 		)
 	return (
 		<main className="restaurant-detail-page">
+			<Header />
 			<article className="restaurant-detail-card">
 				<button className="detail-back-button" onClick={() => navigate(-1)} aria-label="Go back">
 					<ArrowLeft size={20} />

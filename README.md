@@ -3,6 +3,12 @@
 ## About
 A small React app built as part of the EatClub frontend technical challenge.  It displays a list of restaurants fetched from a JSON API, allows users to  search by name or cuisine, and navigate through to a detail page showing  deals, hours, and location.
 
+## Screenshots
+
+| List | Detail |
+|------|--------|
+| <img src="public/screenshots/list.png" width="320"> | <img src="public/screenshots/detail.png" width="320"> |
+
 ## Tech Stack
 - **Vite** - modern build tool, chosen over Create React App which is deprecated
 - **React Router** - handles client-side navigation between the list and detail screens
