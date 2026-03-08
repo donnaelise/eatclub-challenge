@@ -31,6 +31,9 @@ export default function RestaurantDetail() {
 						className="detail-hero-image"
 						src={restaurant.imageLink}
 						alt={restaurant.name}
+						onError={(e) => {
+							e.currentTarget.src = '/restaurant-photo-placeholder.png'
+						}}
 					/>
 					<span className="detail-new-badge">New</span>
 					<div className="detail-dots" aria-hidden="true">

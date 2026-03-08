@@ -8,10 +8,10 @@ interface RestaurantCardProps {
 
 export default function RestaurantCard({ restaurant }: RestaurantCardProps) {
   const bestDeal = restaurant.deals.reduce((best, current) =>
-  Number(current.discount) > Number(best.discount) ? current : best
-)
-  const cuisines = restaurant.cuisines.slice(0, 3).join(' • ')
-const navigate = useNavigate()
+    Number(current.discount) > Number(best.discount) ? current : best
+    )
+  const cuisines = restaurant.cuisines.slice(0, 3).join(', ')
+  const navigate = useNavigate()
 
   return (
     <li className="restaurant-card" onClick={() => navigate(`/restaurant/${restaurant.objectId}`, { state: { restaurant } })} role="button">
@@ -20,6 +20,9 @@ const navigate = useNavigate()
           className="restaurant-image"
           src={restaurant.imageLink}
           alt={restaurant.name}
+          onError={(e) => {
+            e.currentTarget.src = '/restaurant-photo-placeholder.png'
+          }}
         />
         {bestDeal && (
           <div className="deal-badge">
@@ -27,7 +30,7 @@ const navigate = useNavigate()
             
             <span>{bestDeal.close ? `Arrive before ${bestDeal.close}` : 'Anytime today'}</span>
           </div>
-        )}
+          )}
       </div>
 
       <div className="restaurant-content">
@@ -40,10 +43,7 @@ const navigate = useNavigate()
           {restaurant.suburb}
         </p>
         <p className="restaurant-cuisines">{cuisines}</p>
-        <p className="restaurant-hours">
-          {restaurant.open} - {restaurant.close}
-        </p>
       </div>
     </li>
-  )
+    )
 }
